@@ -41,23 +41,22 @@ class LoginActivity : AppCompatActivity() {
         val password = editTextPassword.text.toString()
 
         if (email.isBlank()) {
-            Toast.makeText(this, "Email address cannot be blank", Toast.LENGTH_SHORT)
+            Toast.makeText(this, "Email address cannot be blank", Toast.LENGTH_SHORT).show()
             return
         }
         if (password.isBlank()) {
-            Toast.makeText(this, "Password cannot be blank", Toast.LENGTH_SHORT)
+            Toast.makeText(this, "Password cannot be blank", Toast.LENGTH_SHORT).show()
             return
         }
 
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) {
             if (it.isSuccessful) {
-                Toast.makeText(this, "Successfully Login", Toast.LENGTH_SHORT)
+                Toast.makeText(this, "Successfully Login", Toast.LENGTH_SHORT).show()
                 // redirect user to main activity
                 val intent = Intent(this,MainActivity::class.java)
                 startActivity(intent)
-                finish()
             } else {
-                Toast.makeText(this, "Login failed", Toast.LENGTH_SHORT)
+                Toast.makeText(this, "Login failed", Toast.LENGTH_SHORT).show()
             }
         }
 
